@@ -17,7 +17,7 @@ function createVisualsAndPearls($array, $pearl) {
     $visual = [];
     $pearls = [];
 
-    foreach($dict as $key => $value) {
+    foreach($array as $key => $value) {
         $visuals[] = new Visual(title: $key);
 
         if (is_array($value)) {
