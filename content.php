@@ -12,6 +12,32 @@ use \Oyster\Render\Attribute;
 require_once __DIR__ . '/support/lib/vendor/autoload.php';
 require_once __DIR__ . '/layout.php';
 require_once __DIR__ . '/head.php';
+
+function createVisualsAndPearls($array, $pearl) {
+    $visual = [];
+    $pearls = [];
+
+    foreach($dict as $key => $value) {
+        $visuals[] = new Visual(title: $key);
+
+        if (is_array($value)) {
+            foreach ($value as $item) {
+                if (is_array($item)) {
+                    $result = createVisualsAndPearls($item, $pearl);
+                    $visuals = array_merge($visuals, $result['visuals']);
+                    $pearls = array_merge($pearls, $result['pearls']);
+                } else {
+                    $visuals[] = new Visual(title: $item);
+                }
+            }
+        } else {
+            $pearls[] = $pearl;
+        }
+    }
+
+    return ['visuals' => $visuals, 'pearls' => $pearls];
+}
+
 global $body;
 
 // Create the main stage container

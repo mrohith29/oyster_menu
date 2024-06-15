@@ -16,7 +16,9 @@ $body[] = $new = new HTML(tag: 'div', classes: ['Stage']);
 
 $newHeader = new Header(crumbs: ['Home', 'About', 'Contact']);
 
-$visual = new Visual(title: 'Wow');
+$array = ['List1' => ['Wow', "cool"], 'List 2' => ["Wow", "Hello"]];
+
+$visual = new Visual(title: 'Rohith');
 $otherVisual = new Visual(title: 'Cool');
 $coolVisual = new Visual(title: 'Nice');
 $coolVisual1 = new Visual(title: 'Child 1');
